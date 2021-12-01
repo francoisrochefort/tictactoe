@@ -12,7 +12,7 @@ import os
 
 class TicTacToe(Game):
 
-    def __init__(self, initial: List = None):
+    def __init__(self, initial: List = None, windowless: bool = False):
 
         # init. players attribute
         self.players: Optional[List[Player]] = None
@@ -24,8 +24,9 @@ class TicTacToe(Game):
         super().__init__(self.initial)
 
         # init.the user interface
-        self.create_window()
-        self.draw_background()
+        if not windowless:
+            self.create_window()
+            self.draw_background()
     
     def create_window(self):
         pygame.font.init()
