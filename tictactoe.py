@@ -92,31 +92,31 @@ class TicTacToe(Game):
         for row in range(ROWS):
             if state[row][0] == state[row][1] and state[row][1] == state[row][2]:
                 if state[row][0] == self.players[X]:
-                    return 1
+                    return 10
                 elif state[row][0] == self.players[O]:
-                    return -1
+                    return -10
 
         # vertical
         for col in range(COLS):
             if state[0][col] == state[1][col] and state[1][col] == state[2][col]:
                 if state[0][col] == self.players[X]:
-                    return 1
+                    return 10
                 elif state[0][col] == self.players[O]:
-                    return -1
+                    return -10
 
         # diagonal #1
         if state[0][0] == state[1][1] and state[1][1] == state[2][2]:
             if state[0][0] == self.players[X]:
-                return 1
+                return 10
             elif state[0][0] == self.players[O]:
-                return -1
+                return -10
 
         # diagonal #2
         if state[0][2] == state[1][1] and state[1][1] == state[2][0]:
             if state[0][2] == self.players[X]:
-                return 1
+                return 10
             elif state[0][2] == self.players[O]:
-                return -1
+                return -10
 
         # tie
         return 0

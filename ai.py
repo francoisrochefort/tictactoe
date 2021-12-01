@@ -37,7 +37,6 @@ class AI(Player):
 
         # minimizing player
         else:
-
             score = 2
             for row in range(ROWS):
                 for col in range(COLS):
@@ -71,7 +70,7 @@ class AI(Player):
 
     def play_depth(self, game: 'Game', state: List) -> tuple:
 
-        best: int = -2
+        best: int = -1000
         move: tuple = None
 
         for row in range(ROWS):
@@ -81,7 +80,7 @@ class AI(Player):
 
                     # move and evaluate
                     state[row][col] = game.players[X]
-                    value = self.minimax_depth(game, state, False)
+                    value = self.minimax_depth(game, 0, state, False)
                     state[row][col] = None
 
                     # keep the best move
@@ -91,38 +90,40 @@ class AI(Player):
 
         return move
 
-    def minimax_depth(self, game: 'Game', state: List, is_max) -> int:
+    def minimax_depth(self, game: 'Game', depth: int, state: List, is_max) -> int:
 
         # if either the maximizing or the minimizing wins then return the score
-        score: int = game.evaluate(state)
-        if score != 0:
+        winner: int = game.evaluate(state)
+        if winner != 0:
+            if is_max:
+                score = winner - depth
+            else:
+                score = winner + depth
             return score
-        print('minimax called')
+
         # there is no more possible move and no winner; it is a tie
         if len(game.actions(state)) == 0:
             return 0
 
         # maximizing player
         if is_max:
-
-            score = - 2
+            score = -1000
             for row in range(ROWS):
                 for col in range(COLS):
                     if state[row][col] is None:
                         state[row][col] = game.players[X]
-                        score = max(self.minimax_depth(game, state, False), score)
+                        score = max(self.minimax_depth(game, depth+1, state, False), score)
                         state[row][col] = None
             return score
 
         # minimizing player
         else:
-
-            score = 2
+            score = 1000
             for row in range(ROWS):
                 for col in range(COLS):
                     if state[row][col] is None:
                         state[row][col] = game.players[O]
-                        score = min(self.minimax_depth(game, state, True), score)
+                        score = min(self.minimax_depth(game, depth+1, state, True), score)
                         state[row][col] = None
             return score
 
