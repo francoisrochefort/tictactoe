@@ -1,4 +1,4 @@
 # tictactoe
 project final du cours d'inlteligence artificielle 2
 
-Test GRAKEN !!!! July!!!!
+Test KRAKEN !!!! July!!!!
