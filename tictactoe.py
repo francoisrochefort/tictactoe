@@ -153,7 +153,7 @@ class TicTacToe(Game):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
-                elif event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN:
                     done = True
 
 

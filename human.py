@@ -62,8 +62,9 @@ class Human(Player):
                 elif row == 2 and col == 2:
                     index = 8
                 else:
-                    return (-1, -1) #'Invalid CLick'
-        return (col, row)
+                    # 'Invalid CLick'
+                    return -1, -1
+        return col, row
          
     # return  random.choice(game.actions(state))
     def play(self, game: "Game", state: List) -> tuple:

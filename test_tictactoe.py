@@ -2,10 +2,11 @@
 
 from player import Player
 from tictactoe import TicTacToe
-from human import Humain
+from human import Human
 from ai import AI
 from typing import List
 from constants import X, O
+import time
 
 
 MAX = 1
@@ -13,8 +14,8 @@ MIN = -1
 
 
 def test_evaluate():
-    # tie
-    players: List[Player] = [AI('X'), Humain('O')]
+    # Vérifie une partie nulle
+    players: List[Player] = [AI('X'), Human('O')]
     board = [
         [players[X], players[O], players[X]],
         [players[O], players[X], players[O]],
@@ -27,7 +28,7 @@ def test_evaluate():
 
 # def test_evaluate1_O_gagnant():
     # Humain Gagne
-    # players: List[Player] = [AI('X'), Humain('O')]
+    # players: List[Player] = [AI('X'), Human('O')]
     # board: List = [
     #     [players[X], players[O], players[X]],
     #     [players[O], players[O], players[O]],
@@ -39,9 +40,9 @@ def test_evaluate():
     # assert game.evaluate(board) is 1
         
         
-# def test_evaluate2_X_gagnang():        
+# def test_evaluate2_X_gagnant():
     # AI Gagne
-    # players: List[Player] = [AI('X'), Humain('O')]
+    # players: List[Player] = [AI('X'), Human('O')]
     # board: List = [
     #     players[X], players[X], players[X],
     #     players[O], players[O], players[X],
@@ -51,10 +52,23 @@ def test_evaluate():
     # game.evaluate(board)
     # game.players = players
     # assert game.evaluate(board) is -1
-    
-    
-    
-    
+
+def test_evaluate_depth():
+    # Vérifie une partie nulle
+    players: List[Player] = [AI('X'), Human('O')]
+    board = [
+        [None, None, None],
+        [None, None, None],
+        [None, None, None]
+    ]
+    before = time.time()
+    pos = game.play_depth()
+    #game: TicTacToe = TicTacToe()
+    game.players = players
+    duretime = time.time() - before
+    print('durée:', duretime)
+    assert game.evaluate(board) == 1
+
     
     
     
