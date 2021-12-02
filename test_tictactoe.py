@@ -7,7 +7,7 @@ from dummy import Dummy
 from ai import AI
 from typing import List
 from constants import X, O
-import time
+
 
 
 MAX = 1
@@ -58,12 +58,8 @@ def test_evaluate_depth():
 
     game: TicTacToe = TicTacToe(None, True)
     game.players = [AI('X'), Dummy('O')]
-    before = time.time()
     game.next_player = game.players[X]
-    dure_time = time.time() - before
-    print(dure_time)
     move: tuple = game.next_player.play_depth(game, game.initial)
-
     assert move == (0, 0)
 
 
@@ -72,9 +68,6 @@ def test_evaluate_pruning():
     game: TicTacToe = TicTacToe(None, True)
     game.players = [AI('X'), Dummy('O')]
     game.next_player = game.players[X]
-    before = time.time()
     move: tuple = game.next_player.play_pruning(game, game.initial)
-    dure_time = time.time() - before
-    print('durée:', dure_time)
     assert move == (0, 0)
 

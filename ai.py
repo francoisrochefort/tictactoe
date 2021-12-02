@@ -177,7 +177,7 @@ class AI(Player):
 
                         # Alpha Beta Pruning
                         if beta >= alpha:
-                            pass
+                            break
             return score
 
         # minimizing player
@@ -193,7 +193,7 @@ class AI(Player):
 
                         # Alpha Beta Pruning
                         if beta <= alpha:
-                            pass
+                            break
             return score
 
     def __str__(self):

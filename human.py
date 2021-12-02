@@ -75,8 +75,7 @@ class Human(Player):
                     run = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     return self.hit_test()
-            pygame.display.update()
-    pygame.quit()
+        pygame.quit()
 
     def __str__(self):
         return self.name
