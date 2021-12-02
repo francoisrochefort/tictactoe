@@ -14,53 +14,67 @@ MAX = 1
 MIN = -1
 
 
-def test_evaluate():
+def test_evaluate_nulle():
     # Vérifie une partie nulle
     players: List[Player] = [AI('X'), Human('O')]
-    board = [
+    board: List = [
         [players[X], players[O], players[X]],
         [players[O], players[X], players[O]],
-        [players[X], players[O], players[X]]
+        [players[O], players[X], players[O]]
         ]
-    game: TicTacToe = TicTacToe()
+    game: TicTacToe = TicTacToe(None, True)
     game.players = players
-    assert game.evaluate(board) == 1
+    assert game.evaluate(board) == 0
 
 
-# def test_evaluate1_O_gagnant():
+def test_evaluate1_O_gagnant():
     # Humain Gagne
-    # players: List[Player] = [AI('X'), Human('O')]
-    # board: List = [
-    #     [players[X], players[O], players[X]],
-    #     [players[O], players[O], players[O]],
-    #     [players[O], players[X], players[X]]
-    #     ]
-    # game: TicTacToe = TicTacToe()
-    # game.evaluate(board)
-    # game.players = players
-    # assert game.evaluate(board) is 1
-        
-        
-# def test_evaluate2_X_gagnant():
+    players: List[Player] = [AI('X'), Human('O')]
+    board: List = [
+        [players[X], players[O], players[X]],
+        [players[O], players[O], players[O]],
+        [players[O], players[X], players[X]]
+        ]
+    game: TicTacToe = TicTacToe(None, True)
+    game.players = players
+    assert game.evaluate(board) == -10
+
+
+def test_evaluate2_X_gagnant():
     # AI Gagne
-    # players: List[Player] = [AI('X'), Human('O')]
-    # board: List = [
-    #     players[X], players[X], players[X],
-    #     players[O], players[O], players[X],
-    #     players[X], players[X], players[O]
-    #     ]
-    # game: TicTacToe = TicTacToe()
-    # game.evaluate(board)
-    # game.players = players
-    # assert game.evaluate(board) is -1
+    players: List[Player] = [AI('X'), Human('O')]
+    board: List = [
+        [players[X], players[X], players[X]],
+        [players[O], players[O], players[X]],
+        [players[X], players[X], players[O]]
+        ]
+    game: TicTacToe = TicTacToe(None, True)
+    game.players = players
+
+    assert game.evaluate(board) == 10
+
 
 def test_evaluate_depth():
 
     game: TicTacToe = TicTacToe(None, True)
     game.players = [AI('X'), Dummy('O')]
+    before = time.time()
     game.next_player = game.players[X]
+    dure_time = time.time() - before
+    print(dure_time)
     move: tuple = game.next_player.play_depth(game, game.initial)
 
     assert move == (0, 0)
 
+
+def test_evaluate_pruning():
+
+    game: TicTacToe = TicTacToe(None, True)
+    game.players = [AI('X'), Dummy('O')]
+    game.next_player = game.players[X]
+    before = time.time()
+    move: tuple = game.next_player.play_pruning(game, game.initial)
+    dure_time = time.time() - before
+    print('durée:', dure_time)
+    assert move == (0, 0)
 

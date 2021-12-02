@@ -9,7 +9,7 @@ class Dummy(Player):
         self.name: str = name
 
     def __eq__(self, other):
-        return isinstance(other, str) and self.name == other.name
+        return isinstance(other, Dummy) and self.name == other.name
 
     def play(self, game: 'Game', state: List) -> tuple:
         pass
