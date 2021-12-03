@@ -12,7 +12,7 @@ class AI(Player):
     def __eq__(self, other):
         return isinstance(other, str) and self.name == other.name
 
-    def minimax(self, game: 'Game', state: List, is_max) -> int:
+    def minimax(self, game: 'Game', state: List, is_max: bool) -> int:
 
         # if either the maximizing or the minimizing wins then return the score
         score: int = game.evaluate(state)
@@ -94,7 +94,7 @@ class AI(Player):
 
         return move
 
-    def minimax_depth(self, game: 'Game', depth: int, state: List, is_max) -> int:
+    def minimax_depth(self, game: 'Game', depth: int, state: List, is_max: bool) -> int:
 
         # if either the maximizing or the minimizing wins then return the score
         winner: int = game.evaluate(state)
@@ -153,7 +153,7 @@ class AI(Player):
 
         return move
 
-    def minimax_ab_prune(self, game: 'Game', depth: int, state: List, is_max, alpha, beta) -> int:
+    def minimax_ab_prune(self, game: 'Game', depth: int, state: List, is_max: bool, alpha: int, beta: int) -> int:
 
         # if either the maximizing or the minimizing wins then return the score
         winner: int = game.evaluate(state)
