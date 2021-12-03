@@ -1,4 +1,4 @@
-
+#test git
 
 from game import Game
 from typing import List, Optional
@@ -12,11 +12,11 @@ import os
 
 class TicTacToe(Game):
 
-    def __init__(self, initial: List = None):
+    def __init__(self, initial: List = None, windowless: bool = False):
 
         # init. players attribute
         self.players: Optional[List[Player]] = None
-        self.next_player = None
+        self.next_player: Player = None
 
         # init. the board
         if not initial:
@@ -24,8 +24,9 @@ class TicTacToe(Game):
         super().__init__(self.initial)
 
         # init.the user interface
-        self.create_window()
-        self.draw_background()
+        if not windowless:
+            self.create_window()
+            self.draw_background()
     
     def create_window(self):
         pygame.font.init()
@@ -40,17 +41,17 @@ class TicTacToe(Game):
             self.win.blit(RED_X, (move.y, move.x))
         pygame.display.update()
 
-    def index_of(self, pos: tuple) -> int :
+    def index_of(self, pos: tuple) -> int:
         return (pos[1] * COLS) + pos[0]
 
     def draw_background(self):
 
-        self.win.fill(WHITE)
+        self.win.fill(BLACK)
         self.win.blit(BACK_GROUND, (0, 0))
-        pygame.draw.line(self.win, WHITE, (WIDTH / 3, 0), (WIDTH / 3, HEIGHT), 7)
-        pygame.draw.line(self.win, WHITE, (WIDTH / 3 * 2, 0), (WIDTH / 3 * 2, HEIGHT), 7)
-        pygame.draw.line(self.win, WHITE, (0, HEIGHT / 3), (WIDTH, HEIGHT / 3), 7)
-        pygame.draw.line(self.win, WHITE, (0, HEIGHT / 3 * 2), (WIDTH, HEIGHT / 3 * 2), 7)
+        pygame.draw.line(self.win, BLACK, (WIDTH / 3, 0), (WIDTH / 3, HEIGHT), 7)
+        pygame.draw.line(self.win, BLACK, (WIDTH / 3 * 2, 0), (WIDTH / 3 * 2, HEIGHT), 7)
+        pygame.draw.line(self.win, BLACK, (0, HEIGHT / 3), (WIDTH, HEIGHT / 3), 7)
+        pygame.draw.line(self.win, BLACK, (0, HEIGHT / 3 * 2), (WIDTH, HEIGHT / 3 * 2), 7)
         pygame.display.update()
 
     def draw_board(self, state: List):
@@ -82,6 +83,7 @@ class TicTacToe(Game):
 
         # update user interface        
         self.draw_board(self.initial)
+        pygame.display.update()
 
         return state
 
@@ -91,31 +93,31 @@ class TicTacToe(Game):
         for row in range(ROWS):
             if state[row][0] == state[row][1] and state[row][1] == state[row][2]:
                 if state[row][0] == self.players[X]:
-                    return 1
+                    return 10
                 elif state[row][0] == self.players[O]:
-                    return -1
+                    return -10
 
         # vertical
         for col in range(COLS):
             if state[0][col] == state[1][col] and state[1][col] == state[2][col]:
                 if state[0][col] == self.players[X]:
-                    return 1
+                    return 10
                 elif state[0][col] == self.players[O]:
-                    return -1
+                    return -10
 
         # diagonal #1
         if state[0][0] == state[1][1] and state[1][1] == state[2][2]:
             if state[0][0] == self.players[X]:
-                return 1
+                return 10
             elif state[0][0] == self.players[O]:
-                return -1
+                return -10
 
         # diagonal #2
         if state[0][2] == state[1][1] and state[1][1] == state[2][0]:
             if state[0][2] == self.players[X]:
-                return 1
+                return 10
             elif state[0][2] == self.players[O]:
-                return -1
+                return -10
 
         # tie
         return 0
@@ -124,7 +126,7 @@ class TicTacToe(Game):
 
         # terminate if one of the two players has won the game
         result: int = self.evaluate(state)
-        if result == 1 or result == -1:
+        if result == 10 or result == -10:
             return True
 
         # also terminate if the game is a tie
@@ -147,18 +149,16 @@ class TicTacToe(Game):
         # begin the game
         super().play_game(players)
 
-        # wait for the user to press any key
-        done: bool = False 
-        while not done: 
+        # wait for the user to click X (exit)
+        done: bool = False
+        while not done:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    done = True
-                elif event.type == pygame.KEYDOWN:
                     done = True
 
 
 if __name__ == '__main__':
 
-    while True:
-        game: TicTacToe = TicTacToe()
-        game.play_game([AI('X'), Human('O')])
+    game: TicTacToe = TicTacToe()
+    game.play_game([AI('X'), Human('O')])
+

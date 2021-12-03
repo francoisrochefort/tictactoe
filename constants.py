@@ -1,6 +1,10 @@
 import pygame
 import os
 
+# Alpha Beta pruning
+MINFINITY = -1000
+MAXFINITY = 1000
+
 # board size
 COLS = 3
 ROWS = 3
