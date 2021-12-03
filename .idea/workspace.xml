@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0d0a344-88b1-447b-ba77-cde875203380" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/test_tictactoe.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_tictactoe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tictactoe.py" beforeDir="false" afterPath="$PROJECT_DIR$/tictactoe.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +29,72 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tictactoe.py" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_tictactoe.test_compare_depth_vs_pruning_time">
+    <configuration name="tictactoe" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Putin\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tictactoe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_tictactoe.test_compare_depth_vs_pruning_time" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_tictactoe.test_compare_depth_vs_pruning_time&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_tictactoe.test_evaluate1_O_gagnant" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_tictactoe.test_evaluate1_O_gagnant&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_tictactoe.test_evaluate2_X_gagnant" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_tictactoe.test_evaluate2_X_gagnant&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_tictactoe.test_evaluate_depth" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -44,9 +109,35 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_tictactoe.test_evaluate_pruning" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_tictactoe.test_evaluate_pruning&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.tictactoe" />
+      <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate_depth" />
+      <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate1_O_gagnant" />
+      <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate2_X_gagnant" />
+      <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate_pruning" />
+      <item itemvalue="Python tests.Python tests for test_tictactoe.test_compare_depth_vs_pruning_time" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_tictactoe.test_compare_depth_vs_pruning_time" />
+        <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate_pruning" />
         <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate_depth" />
+        <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate2_X_gagnant" />
+        <item itemvalue="Python tests.Python tests for test_tictactoe.test_evaluate1_O_gagnant" />
       </list>
     </recent_temporary>
   </component>
@@ -71,5 +162,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

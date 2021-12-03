@@ -7,7 +7,6 @@ from constants import *
 from ai import AI
 from human import Human
 import pygame
-import os
 
 
 class TicTacToe(Game):
@@ -16,7 +15,7 @@ class TicTacToe(Game):
 
         # init. players attribute
         self.players: Optional[List[Player]] = None
-        self.next_player: Player = None
+        self.next_player: Optional[Player] = None
 
         # init. the board
         if not initial:
@@ -161,4 +160,3 @@ if __name__ == '__main__':
 
     game: TicTacToe = TicTacToe()
     game.play_game([AI('X'), Human('O')])
-

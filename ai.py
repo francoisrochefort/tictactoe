@@ -1,5 +1,5 @@
 
-from typing import List
+from typing import List, Optional
 from constants import ROWS, COLS, X, O, MINFINITY, MAXFINITY
 from player import Player
 
@@ -10,7 +10,7 @@ class AI(Player):
         self.name: str = name
 
     def __eq__(self, other):
-        return isinstance(other, str) and self.name == other.name
+        return isinstance(other, AI) and self.name == other.name
 
     def minimax(self, game: 'Game', state: List, is_max: bool) -> int:
 
@@ -38,11 +38,8 @@ class AI(Player):
         # minimizing player
         else:
             score = 2
-#            for row in range(ROWS):
-#                for col in range(COLS):
-            actions: List = game.actions(state)
-            for action in actions:
-
+            for row in range(ROWS):
+                for col in range(COLS):
                     if state[row][col] is None:
                         state[row][col] = game.players[O]
                         score = min(self.minimax(game, state, True), score)
@@ -53,7 +50,7 @@ class AI(Player):
     def play(self, game: 'Game', state: List) -> tuple:
 
         best: int = -2
-        move: tuple = None
+        move: Optional[tuple] = None
 
         for row in range(ROWS):
             for col in range(COLS):
@@ -75,7 +72,7 @@ class AI(Player):
     def play_depth(self, game: 'Game', state: List) -> tuple:
 
         best: int = -1000
-        move: tuple = None
+        move: Optional[tuple] = None
 
         for row in range(ROWS):
             for col in range(COLS):
@@ -134,7 +131,7 @@ class AI(Player):
     def play_pruning(self, game: 'Game', state: List) -> tuple:
 
         best: int = -1000
-        move: tuple = None
+        move: Optional[tuple] = None
 
         for row in range(ROWS):
             for col in range(COLS):
@@ -202,6 +199,3 @@ class AI(Player):
 
     def __str__(self):
         return self.name
-
-    def __eq__(self, other):
-        return isinstance(other, AI) and self.name == other.name
