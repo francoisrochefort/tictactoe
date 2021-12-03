@@ -7,6 +7,7 @@ from dummy import Dummy
 from ai import AI
 from typing import List
 from constants import X, O
+from time import *
 
 
 
@@ -71,3 +72,22 @@ def test_evaluate_pruning():
     move: tuple = game.next_player.play_pruning(game, game.initial)
     assert move == (0, 0)
 
+
+def test_compare_depth_vs_pruning_time():
+    game: TicTacToe = TicTacToe(None, True)
+    game.players = [AI('X'), Dummy('O')]
+    game.next_player = game.players[X]
+
+    before_pruning = time()
+    game.next_player.play_pruning(game, game.initial)
+    dure_pruning = time() - before_pruning
+
+    before_depth = time()
+    game.next_player.play_depth(game, game.initial)
+    dure_depth = time() - before_depth
+
+    print("\n", "Durée avec Pruning:", dure_pruning,"\n", 'Durée avec Depth:', dure_depth)
+
+    assert dure_pruning < dure_depth
+    
+    
