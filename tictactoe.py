@@ -16,7 +16,7 @@ class TicTacToe(Game):
 
         # init. players attribute
         self.players: Optional[List[Player]] = None
-        self.next_player = None
+        self.next_player: Player = None
 
         # init. the board
         if not initial:

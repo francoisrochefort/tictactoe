@@ -12,17 +12,23 @@ Assume that there are 2 possible ways for X to win the game from a give board st
 
 Our evaluation function will return a value of +10 for both moves A and B. Even though the move A is better because it ensures a faster victory, our AI may choose B sometimes. To overcome this problem we subtract the depth value from the evaluated score. This means that in case of a victory it will choose a the victory which takes least number of moves and in case of a loss it will try to prolong the game and play as many moves as possible. So the new evaluated value will be
 
-    Move A will have a value of +10 – 2 = 8
-    Move B will have a value of +10 – 4 = 6
+    Move A will have a value of +10 - 2 = 8
+    Move B will have a value of +10 - 4 = 6
 
 Now since move A has a higher score compared to move B our AI will choose move A over move B. The same thing must be applied to the minimizer. Instead of subtracting the depth we add the depth value as the minimizer always tries to get, as negative a value as possible. We can subtract the depth either inside the evaluation function or outside it. Anywhere is fine. I have chosen to do it outside the function. Pseudocode implementation is as follows. 
 
 if maximizer has won:
-    return WIN_SCORE – depth
+    return WIN_SCORE - depth
 
 else if minimizer has won:
     return LOOSE_SCORE + depth
 
 
-Référence:
+R�f�rence:
 https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+
+
+
+Voici mon lien pour l'explication du pruning
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/STjW3eH0Cik?start=1911" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -38,12 +38,16 @@ class AI(Player):
         # minimizing player
         else:
             score = 2
-            for row in range(ROWS):
-                for col in range(COLS):
+#            for row in range(ROWS):
+#                for col in range(COLS):
+            actions: List = game.actions(state)
+            for action in actions:
+
                     if state[row][col] is None:
                         state[row][col] = game.players[O]
                         score = min(self.minimax(game, state, True), score)
                         state[row][col] = None
+
             return score
 
     def play(self, game: 'Game', state: List) -> tuple:

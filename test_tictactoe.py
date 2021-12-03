@@ -8,10 +8,8 @@ from ai import AI
 from typing import List
 from constants import X, O
 
-
-
-MAX = 1
-MIN = -1
+MAX = 10
+MIN = -10
 
 
 def test_evaluate_nulle():
@@ -37,7 +35,7 @@ def test_evaluate1_O_gagnant():
         ]
     game: TicTacToe = TicTacToe(None, True)
     game.players = players
-    assert game.evaluate(board) == -10
+    assert game.evaluate(board) == MIN
 
 
 def test_evaluate2_X_gagnant():
@@ -51,7 +49,7 @@ def test_evaluate2_X_gagnant():
     game: TicTacToe = TicTacToe(None, True)
     game.players = players
 
-    assert game.evaluate(board) == 10
+    assert game.evaluate(board) == MAX
 
 
 def test_evaluate_depth():
