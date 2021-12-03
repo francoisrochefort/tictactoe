@@ -1,6 +1,10 @@
 # tictactoe
 project final du cours d'inlteligence artificielle 2
 
+
+https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+
+
 Explication de l'ajout de  profondeur:
 Making our AI smarter :
 
@@ -24,7 +28,7 @@ else if minimizer has won:
     return LOOSE_SCORE + depth
 
 
-Référence:
+Rï¿½fï¿½rence:
 https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
 
 
